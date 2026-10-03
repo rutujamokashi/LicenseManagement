@@ -1,0 +1,327 @@
+.app {
+    min-height: 100vh;
+}
+
+/* Header */
+
+.app-header {
+    background: #1f2937;
+    color: white;
+    padding: 22px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.app-header p {
+    margin: 6px 0 0;
+    color: #d1d5db;
+    font-size: 14px;
+}
+
+.header-badge {
+    padding: 8px 14px;
+    border: 1px solid #4b5563;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #e5e7eb;
+}
+
+/* Dashboard */
+
+.dashboard {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+.dashboard-title {
+    margin-bottom: 25px;
+}
+
+.dashboard-title h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #111827;
+}
+
+.dashboard-title p {
+    margin-top: 6px;
+    color: #6b7280;
+}
+
+/* Tabs */
+
+.tabs {
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid #d1d5db;
+    margin-bottom: 25px;
+}
+
+.tab {
+    background: transparent;
+    color: #6b7280;
+    border: none;
+    border-radius: 0;
+    padding: 13px 22px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.tab:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.tab.active {
+    color: #2563eb;
+    border-bottom: 3px solid #2563eb;
+    background: transparent;
+}
+
+/* Cards */
+
+.license-generator,
+.license-validator {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.license-generator h2,
+.license-validator h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #111827;
+}
+
+/* Forms */
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input,
+.form-group textarea,
+.license-key-section textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* Buttons */
+
+button {
+    font-family: inherit;
+}
+
+.license-generator button,
+.license-validator button {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    background: #2563eb;
+    color: white;
+}
+
+.license-generator button:hover,
+.license-validator button:hover {
+    background: #1d4ed8;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Button group */
+
+.button-group {
+    display: flex;
+    gap: 12px;
+}
+
+.revoke-button {
+    background: #dc2626 !important;
+}
+
+.revoke-button:hover {
+    background: #b91c1c !important;
+}
+
+/* Result */
+
+.license-result {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.license-result h3 {
+    margin-top: 0;
+    color: #065f46;
+}
+
+.result-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.result-item strong {
+    min-width: 150px;
+}
+
+.license-key-section {
+    margin-top: 25px;
+}
+
+.license-key-section strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.license-key-section textarea {
+    font-family: monospace;
+    font-size: 13px;
+    resize: vertical;
+    background: #f9fafb;
+}
+
+/* Validation */
+
+.validation-result {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.validation-result.valid {
+    background: #ecfdf5;
+    border: 1px solid #10b981;
+}
+
+.validation-result.invalid {
+    background: #fef2f2;
+    border: 1px solid #ef4444;
+}
+
+.validation-result h3 {
+    margin-top: 0;
+}
+
+.validation-result p {
+    margin: 8px 0;
+}
+
+/* Messages */
+
+.error-message {
+    margin-top: 20px;
+    padding: 12px;
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+}
+
+.success-message {
+    margin-top: 20px;
+    padding: 12px;
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #10b981;
+    border-radius: 6px;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .app-header {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .dashboard {
+        margin-top: 25px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .tabs {
+        overflow-x: auto;
+    }
+
+    .tab {
+        white-space: nowrap;
+    }
+
+    .result-item {
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f4f6;
+    color: #111827;
+}

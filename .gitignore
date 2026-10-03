@@ -1,0 +1,29 @@
+# Environment / secrets
+.env
+*.env
+
+# .NET
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+
+# React / Node
+**/node_modules/
+**/dist/
+**/.vite/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Docker
+docker-compose.override.yml

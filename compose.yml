@@ -1,0 +1,37 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: crn-sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SQL_PASSWORD}
+    ports:
+      - "1433:1433"
+    volumes:
+      - productmanagement_sql_data:/var/opt/mssql
+
+  api:
+    build:
+      context: ./LicenseManagement.API
+    container_name: license-management-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Docker
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__LicenseManagementDb: "Server=crn-sqlserver,1433;Database=${SQL_DATABASE};User Id=${SQL_USER};Password=${SQL_PASSWORD};TrustServerCertificate=True;"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - sqlserver
+
+  ui:
+    build:
+      context: ./LicenseManagement.UI
+    container_name: license-management-ui
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+
+volumes:
+  productmanagement_sql_data:
+    external: true
