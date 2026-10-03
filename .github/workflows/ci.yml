@@ -58,3 +58,15 @@ jobs:
 
       - name: Build UI Docker image
         run: docker build -t license-management-ui:ci ./LicenseManagement.UI
+ 
+      - name: Tag API Docker image
+        run: docker tag license-management-api:ci ghcr.io/${{ github.repository_owner }}/license-management-api:latest
+
+      - name: Tag UI Docker image
+        run: docker tag license-management-ui:ci ghcr.io/${{ github.repository_owner }}/license-management-ui:latest
+
+      - name: Push API Docker image
+        run: docker push ghcr.io/${{ github.repository_owner }}/license-management-api:latest
+
+      - name: Push UI Docker image
+        run: docker push ghcr.io/${{ github.repository_owner }}/license-management-ui:latest
