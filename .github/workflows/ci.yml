@@ -41,3 +41,9 @@ jobs:
       - name: Build React application
         working-directory: LicenseManagement.UI
         run: npm run build
+
+      - name: Build API Docker image
+        run: docker build -t license-management-api:ci ./LicenseManagement.API
+
+      - name: Build UI Docker image
+        run: docker build -t license-management-ui:ci ./LicenseManagement.UI
