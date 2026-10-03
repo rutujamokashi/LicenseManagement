@@ -1,0 +1,45 @@
+name: License Management CI
+
+on:
+push:
+branches:
+- main
+pull_request:
+branches:
+- main
+
+jobs:
+build:
+runs-on: ubuntu-latest
+
+```
+steps:
+  - name: Checkout source code
+    uses: actions/checkout@v4
+
+  - name: Setup .NET
+    uses: actions/setup-dotnet@v4
+    with:
+      dotnet-version: '10.0.x'
+
+  - name: Restore .NET dependencies
+    run: dotnet restore LicenseManagement.slnx
+
+  - name: Build .NET API
+    run: dotnet build LicenseManagement.slnx --configuration Release --no-restore
+
+  - name: Setup Node.js
+    uses: actions/setup-node@v4
+    with:
+      node-version: '22'
+      cache: 'npm'
+      cache-dependency-path: LicenseManagement.UI/package-lock.json
+
+  - name: Install React dependencies
+    working-directory: LicenseManagement.UI
+    run: npm ci
+
+  - name: Build React application
+    working-directory: LicenseManagement.UI
+    run: npm run build
+```
