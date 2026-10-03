@@ -46,6 +46,13 @@ jobs:
         working-directory: LicenseManagement.UI
         run: npm run build
 
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build API Docker image
         run: docker build -t license-management-api:ci ./LicenseManagement.API
 
