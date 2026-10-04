@@ -1,6 +1,5 @@
 using LicenseManagement.API.Services;
 using LicenseManagement.API.Data;
-using LicenseManagement.API.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
