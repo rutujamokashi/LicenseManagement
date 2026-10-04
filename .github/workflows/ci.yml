@@ -32,7 +32,7 @@ jobs:
         run: dotnet build LicenseManagement.slnx --configuration Release --no-restore
 
       - name: Run API tests
-        run: dotnet test LicenseManagement.API.Tests\LicenseManagement.API.Tests.csproj --configuration Release --no-restore
+        run: dotnet test LicenseManagement.API.Tests/LicenseManagement.API.Tests.csproj --configuration Release --no-restore
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
